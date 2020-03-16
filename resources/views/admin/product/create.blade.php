@@ -13,7 +13,7 @@
       	   <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">New Product Add <a href="#" class="btn btn-success btn-sm pull-right">All Product</a></h6>
           <p class="mg-b-20 mg-sm-b-30">New product add form</p>
-          <form action="#" method="post" enctype="multipart/form-data">
+           <form action="{{route('store.product')}}" method="post" enctype="multipart/form-data">
           	@csrf
           
           <div class="form-layout">
@@ -40,13 +40,10 @@
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                   <select class="form-control select2" data-placeholder="Choose Category" name="category_id">
-                    <option label="Choose Category"></option>
-                    <option value="USA">USA</option>
-                    <option value="Uk">UK</option>
-                    <option value="China">China</option>
-                    {{-- @foreach($category as $row)
+                    <option label="Choose Category" disabled selected>--Choose Category--</option>
+                    @foreach($category as $row)
                     <option value="{{ $row->id }}">{{ $row->category_name }}</option>
-                    @endforeach --}}
+                    @endforeach
                   </select>
                 </div>
               </div><!-- col-4 -->
@@ -63,17 +60,17 @@
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
                   <select class="form-control select2" data-placeholder="Choose country" name="brand_id">
-                    <option label="Choose Brand"></option>
-                    {{-- @foreach($brand as $br)
+                    <option label="Choose Brand" disabled selected>--Choose Brand--</option>
+                    @foreach($brands as $br)
                     <option value="{{ $br->id }}">{{ $br->brand_name }}</option>
-                    @endforeach --}}
+                    @endforeach
                   </select>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label><br>
-                  <input class="form-control" type="text" name="product_size" id="size" data-role="tagsinput">
+                  <label class="form-control-label ">Product Size: <span class="tx-danger">*</span></label><br>
+                  <input class="form-control-override" type="text" name="product_size" id="size" data-role="tagsinput">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
@@ -105,25 +102,25 @@
               </div>
 
               <div class="col-lg-4">
-              	<lebel>Image One (Main Thumbnail)<span class="tx-danger">*</span></lebel>
+              	<label>Image One (Main Thumbnail)<span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required="" accept="image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required accept="image">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="one" >
       				</label>
               </div>
               <div class="col-lg-4">
-              	<lebel>Image Two <span class="tx-danger">*</span></lebel>
+              	<label>Image Two <span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required="" accept="image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required accept="image">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="two" >
       				</label>
               </div>
               <div class="col-lg-4">
-              	<lebel>Image Three <span class="tx-danger">*</span></lebel>
+              	<label>Image Three <span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);" required="" accept="/image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);"  accept="/image">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="three" >
       				</label>
@@ -187,17 +184,20 @@
        
       </div><!-- sl-pagebody --> 
     </div><!-- sl-mainpanel -->
-{{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-</script> --}}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
 
 
-{{-- <script type="text/javascript">
+<script type="text/javascript">
 	  $(document).ready(function() {
          $('select[name="category_id"]').on('change', function(){
              var category_id = $(this).val();
+
+            //  alert(category_id);
+
              if(category_id) {
                  $.ajax({
                      url: "{{  url('/get/subcategory/') }}/"+category_id,
@@ -221,10 +221,10 @@
          });
      });
 
-</script> --}}
+</script>
 
 
-{{-- <script type="text/javascript">
+<script type="text/javascript">
 	function readURL(input) {
       if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -237,8 +237,8 @@
           reader.readAsDataURL(input.files[0]);
       }
    }
-</script> --}}
-{{-- <script type="text/javascript">
+</script>
+<script type="text/javascript">
 	function readURL1(input) {
       if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -265,5 +265,5 @@
           reader.readAsDataURL(input.files[0]);
       }
    }
-</script> --}}
+</script>
 @endsection
