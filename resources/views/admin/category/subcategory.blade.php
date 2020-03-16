@@ -26,6 +26,7 @@
                     <thead>
                         <tr>
                             <th class="wd-15p">ID</th>
+                            <th class="wd-15p">Sub-Category Name</th>
                             <th class="wd-15p">Category Name</th>
                             <th class="wd-20p">Action</th>
                         </tr>
@@ -37,6 +38,7 @@
                             
                         
                         <tr>
+                            <td>{{ $key + 1 }} </td>
                             <td>{{ $row->subcategory_name }} </td>
                             <td> {{ $row->category->category_name }} </td>
                             <td>

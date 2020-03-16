@@ -15,8 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('category_id');
-            $table->string('subcategory_id');
+            $table->string('category)id');
+            $table->string('subcategory_id')->nullable();
             $table->string('brand_id')->nullable();
             $table->string('product_name');
             $table->string('product_code');
@@ -24,21 +24,19 @@ class CreateProductsTable extends Migration
             $table->text('product_details');
             $table->string('product_color');
             $table->string('product_size');
-            $table->string('product_price');
             $table->string('selling_price');
             $table->string('discount_price')->nullable();
             $table->string('video_link')->nullable();
             $table->integer('main_slider')->nullable();
             $table->integer('hot_deal')->nullable();
             $table->integer('best_rated')->nullable();
+            $table->integer('mid_slider')->nullable();
             $table->integer('hot_new')->nullable();
             $table->integer('trend')->nullable();
             $table->string('image_one')->nullable();
             $table->string('image_two')->nullable();
             $table->string('image_three')->nullable();
             $table->integer('status')->nullable();
-
-            
             $table->timestamps();
         });
     }

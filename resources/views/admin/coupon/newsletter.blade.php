@@ -39,7 +39,7 @@
                         <tr>
                             <td> <input type="checkbox" > {{ $key+1 }}</td>
                             <td> {{ $row->email }} </td>
-                            <td> {{Carbon\Carbon::parse($row->created_at)->diffForHumans() }} </td>
+                            <td> {{ $row->created_at->diffForHumans() }} </td>
                             <td>
                                 {{-- {{ route('edit.category', $row->id) }} --}}
                                 <a href="{{ route('delete.newsletter', $row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
