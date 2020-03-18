@@ -104,7 +104,7 @@
               <div class="col-lg-4">
               	<label>Image One (Main Thumbnail)<span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required accept="image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" required accept="image/*">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="one" >
       				</label>
@@ -112,7 +112,7 @@
               <div class="col-lg-4">
               	<label>Image Two <span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required accept="image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required accept="image/*">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="two" >
       				</label>
@@ -120,7 +120,7 @@
               <div class="col-lg-4">
               	<label>Image Three <span class="tx-danger">*</span></label>
               	<label class="custom-file">
-      				  <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);"  accept="/image">
+      				  <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL2(this);" required accept="image/png, image/jpeg">
       				  <span class="custom-file-control"></span>
       				  <img src="#" id="three" >
       				</label>

@@ -56,12 +56,18 @@ Route::post('admin/update/coupon/{id}', 'Admin\Category\CouponController@updatec
 
 //newsletter
 Route::get('admin/newsletter', 'Admin\Category\CouponController@newsletter')->name('admin.newsletter');
-Route::get('/delete/newsletter/{id}', 'Admin\Category\CouponController@deletenewsletter')->name('delete.newsletter');
+Route::get('delete/newsletter/{id}', 'Admin\Category\CouponController@deletenewsletter')->name('delete.newsletter');
 
 //product route......
 Route::get('admin/product/all', 'Admin\ProductController@index')->name('all.product');
 Route::get('admin/product/add', 'Admin\ProductController@create')->name('add.product');
 Route::post('admin/store/product', 'Admin\ProductController@store')->name('store.product');
+Route::get('inactive/product/{id}', 'Admin\ProductController@inactive')->name('inactive.product');
+Route::get('active/product/{id}', 'Admin\ProductController@active')->name('active.product');
+Route::get('delete/product/{id}', 'Admin\ProductController@deleteProduct')->name('delete.product');
+Route::get('view/product/{id}', 'Admin\ProductController@viewProduct')->name('view.product');
+
+
 
 //get sub category by ajax...........
 

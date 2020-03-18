@@ -18,7 +18,14 @@ class ProductController extends Controller
     }
     public function index()
     {
-          echo "index";
+          $product = Product::all();
+          return view('admin.product.index',compact('product'));
+          // foreach($product as $row)
+          // {
+          //   echo $row->brand->brand_name."--".$row->category->category_name;
+
+          // }
+
     }
     public function create()
     {
@@ -63,7 +70,7 @@ class ProductController extends Controller
           $image_three = $request->image_three;
 
         //   $image = $request->file('brand_logo');
-          if($image_one && $image_two)
+          if($image_one && $image_two && $image_three)
           {
             $image_one_name= hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
             Image::make($image_one)->resize(230,300)->save('public/media/product/'.$image_one_name);
@@ -74,6 +81,10 @@ class ProductController extends Controller
             Image::make($image_two)->resize(230,300)->save('public/media/product/'.$image_two_name);
             $product->image_two = 'public/media/product/'.$image_two_name;
 
+            $image_three_name= hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
+            Image::make($image_three)->resize(230,300)->save('public/media/product/'.$image_three_name);
+            $product->image_three = 'public/media/product/'.$image_three_name;
+
 
             $product->save();
             $notification=array(
@@ -81,37 +92,55 @@ class ProductController extends Controller
             'alert-type'=>'success'
             );
             return Redirect()->back()->with($notification);    
-          } elseif($image_one){
-            // $image_one_name= hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
-            // Image::make($image_one)->resize(230,300)->save('public/media/product/'.$image_one_name);
-            // $product->image_one = 'public/media/product/'.$image_one_name;
+          } 
 
 
-            // $image_two_name= hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
-            // Image::make($image_two)->resize(230,300)->save('public/media/product/'.$image_two_name);
-            // $product->image_two = 'public/media/product/'.$image_two_name;
 
 
-            // $product->save();
-            // $notification=array(
-            // 'messege'=>'Successfully Product inserted',
-            // 'alert-type'=>'success'
-            // );
-            // return Redirect()->back()->with($notification);
-            $image_one_name= hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
-            Image::make($image_one)->resize(230,300)->save('public/media/product/'.$image_one_name);
-            $product->image_one = 'public/media/product/'.$image_one_name;
-            $product->save();
-           $notification=array(
-           'messege'=>'Successfully Product inserted',
-           'alert-type'=>'success'
-           );
-           return Redirect()->back()->with($notification);
-          }
+    }
+    public function active($id)
+    {
+          Product::find($id)->update(['status'=> 1]);
+          $notification=array(
+            'messege'=>'Successfully Product active',
+            'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);  
+    }
+    public function inactive($id)
+    {
+      Product::find($id)->update(['status'=> 0]);
+      $notification=array(
+        'messege'=>'Successfully Product Inactive',
+        'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);  
+    }
+    public function deleteProduct($id)
+    {
+       $product = Product::find($id);
+       $image1 = $product->image_one;
+       $image2 = $product->image_two;
+       $image3 = $product->image_three;
+
+       unlink( $image1);
+       unlink( $image2);
+       unlink( $image3);
+
+       Product::destroy($id);
       
+       $notification=array(
+        'messege'=>'Successfully Product Deleted ',
+        'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);  
+       
+    }
 
+    public function viewProduct($id)
+    {
+       $product = Product::find($id);
 
-
-
+        return view('admin.product.show',compact('product'));
     }
 }
