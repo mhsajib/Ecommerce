@@ -60,7 +60,7 @@
                             </td>
 
                             <td>
-                                <a href=" {{ route('edit.brand', $row->id) }} " class="btn btn-sm btn-info" title="Edit" ><i class="fa fa-edit"></i></a>
+                                <a href=" {{ route('edit.product', $row->id) }} " class="btn btn-sm btn-info" title="Edit" ><i class="fa fa-edit"></i></a>
                                 <a href=" {{ route('delete.product', $row->id) }} " class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                 <a href=" {{ route('view.product', $row->id) }} " class="btn btn-sm btn-warning" title="View"><i class="fa fa-eye"></i></a>
                                 @if ($row->status == 1)

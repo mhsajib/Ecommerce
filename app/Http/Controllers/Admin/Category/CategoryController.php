@@ -144,7 +144,7 @@ class CategoryController extends Controller
     {
       $brand = Brand::find($id);
       $image = $brand->brand_logo;
-      unlink($image);
+      unlink($image); //have to change
       $brand->delete();
       $notification=array(
         'messege'=>'Successfully Brand Deleted',
