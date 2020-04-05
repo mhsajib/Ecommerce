@@ -42,8 +42,8 @@
                             <td>{{ $row->subcategory_name }} </td>
                             <td> {{ $row->category->category_name }} </td>
                             <td>
-                            <a href="{{route('edit.subcategory',$row->category_id)}}" class="btn btn-sm btn-info">Edit</a>
-                                <a href="{{route('delete.subcategory',$row->category_id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                            <a href="{{route('edit.subcategory',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{route('delete.subcategory',$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
                         {{-- @php($i++) --}}

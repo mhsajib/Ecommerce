@@ -2,9 +2,10 @@
 
 
 
-Route::get('/', function () {return view('pages.index');});
+// Route::get('/', function () {return view('pages.index');});
+Route::get('/', 'Frontend\FrontendController@index');
 //auth & user
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/password-change', 'HomeController@changePassword')->name('password.change');
 Route::post('/password-update', 'HomeController@updatePassword')->name('password.update');
@@ -68,6 +69,20 @@ Route::get('delete/product/{id}', 'Admin\ProductController@deleteProduct')->name
 Route::get('view/product/{id}', 'Admin\ProductController@viewProduct')->name('view.product');
 Route::get('edit/product/{id}', 'Admin\ProductController@editProduct')->name('edit.product');
 Route::post('update/product/{id}', 'Admin\ProductController@updateProduct')->name('update.product');
+
+
+//blog routes
+
+Route::get('admin/add/post', 'Admin\PostController@create')->name('add.blog.post');
+Route::get('admin/all/post', 'Admin\PostController@index')->name('all.blog.post');
+Route::post('admin/store/post', 'Admin\PostController@store')->name('store.post');
+Route::get('delete/post/{id}', 'Admin\PostController@delete')->name('delete.post');
+Route::get('edit/post/{id}', 'Admin\PostController@edit')->name('edit.post');
+Route::post('update/post/{id}', 'Admin\PostController@update')->name('update.post');
+
+
+
+
 
 
 

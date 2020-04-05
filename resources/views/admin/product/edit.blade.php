@@ -40,7 +40,7 @@
                                     value="{{ $product->product_quantity}}">
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                                 <select class="form-control select2" data-placeholder="Choose Category"
@@ -54,7 +54,7 @@
                                 </select>
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Sub Category: <span class="tx-danger">*</span></label>
                                 <select class="form-control select2" name="subcategory_id">
@@ -73,7 +73,7 @@
                                 </select>
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
                                 <select class="form-control select2" data-placeholder="Choose country" name="brand_id">
@@ -90,6 +90,15 @@
                                 </select>
                             </div>
                         </div><!-- col-4 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Discount Price: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="discount_price">
+                                   
+                            </div>
+                        </div><!-- col-4 -->
+                 
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label ">Product Size: <span
@@ -106,6 +115,7 @@
                                     id="color" value="{{ $product->product_color}}">
                             </div>
                         </div><!-- col-4 -->
+                        <br>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label">Selling Price <span class="tx-danger">*</span></label>

@@ -239,6 +239,7 @@ class CategoryController extends Controller
     public function EditsubCategory($id)
     {
           $subcategory = Subcategory::find($id);
+        //   echo $subcategory;
           $category  = Category::all();
           return view('admin.category.edit_subcategory',compact('subcategory','category'));
     }
