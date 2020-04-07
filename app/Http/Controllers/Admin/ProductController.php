@@ -63,6 +63,8 @@ class ProductController extends Controller
             $product->trend = $request->trend;
             $product->mid_slider = $request->mid_slider;
             $product->hot_new = $request->hot_new;
+            $product->buyone_getone = $request->buyone_getone;
+
             $product->status = 1;
 
           $image_one = $request->image_one;
@@ -178,6 +180,7 @@ class ProductController extends Controller
         $product->trend = $request->trend;
         $product->mid_slider = $request->mid_slider;
         $product->hot_new = $request->hot_new;
+        $product->buyone_getone = $request->buyone_getone;
         
 
         //start image section......

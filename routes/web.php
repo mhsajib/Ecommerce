@@ -1,6 +1,8 @@
 <?php
 
-
+//socialite
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
 
 // Route::get('/', function () {return view('pages.index');});
 Route::get('/', 'Frontend\FrontendController@index');
@@ -83,6 +85,12 @@ Route::post('update/post/{id}', 'Admin\PostController@update')->name('update.pos
 
 
 
+//wishlist
+Route::get('add/wishlist/{id}','WishlistController@addwhishlist');
+
+//Cart
+Route::get('add/to/cart/{id}','CartController@addcart');
+Route::get('check','CartController@check');
 
 
 
@@ -93,3 +101,4 @@ Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcatego
 
 ///fronted route
 Route::post('store/newsletter', 'Frontend\FrontendController@storenewsletter')->name('store.newsletter');
+Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');

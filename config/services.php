@@ -29,5 +29,16 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '469555215754-ga9otjkmqo292vie9ruk7jgd4vr79t0f.apps.googleusercontent.com',
+        'client_secret' => 'i_XitNZe7Vk_1gB3Wt6unWbe',
+        'redirect' => 'http://localhost/Ecom/Ecommerce/callback/google',
+      ], 
 
+      'facebook' => [
+        'client_id' => '214011656598891',
+        'client_secret' => '1bd589cf64c2e3f06f1fb7901828e702',
+        'redirect' => 'http://localhost/Ecom/Ecommerce/callback/facebook',
+      ],
+      
 ];
