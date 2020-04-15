@@ -235,9 +235,9 @@
                     <h1 class="banner_text">{{$product->product_name}}</h1>
                     <div class="banner_price">
                         @if ($product->discount_price == NULL)
-                        <h2>{{$product->selling_price}}</h2>
+                        <h2>${{$product->selling_price}}</h2>
                         @else
-                        <span>{{$product->selling_price}}</span>{{$product->discount_price}}</div>
+                        <span>${{$product->selling_price}}</span>${{$product->discount_price}}</div>
                     
                         @endif
                 <div class="banner_product_name">{{$product->brand->brand_name}}</div>

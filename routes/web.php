@@ -87,10 +87,19 @@ Route::post('update/post/{id}', 'Admin\PostController@update')->name('update.pos
 
 //wishlist
 Route::get('add/wishlist/{id}','WishlistController@addwhishlist');
+// Route::get('add/wishlist/{id}', function(){
+//         echo "win";
+// })->name('steps.destroy');
 
 //Cart
 Route::get('add/to/cart/{id}','CartController@addcart');
 Route::get('check','CartController@check');
+Route::get('remove/cart/{rowId}','CartController@removeProduct');
+Route::post('update/cart/item','CartController@UpdateCart')->name('update.cartitem');
+Route::get('show/cart/product','CartController@showCart')->name('show.cart');
+// Route::get('show/cart/product','CartController@showCart')->name('show.cart');
+Route::get('cart/product/view/{id}', 'CartController@ViewProduct');
+Route::post('insert/into/cart','CartController@insertCart')->name('insert_into.cart');
 
 
 
@@ -102,3 +111,6 @@ Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcatego
 ///fronted route
 Route::post('store/newsletter', 'Frontend\FrontendController@storenewsletter')->name('store.newsletter');
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
+
+Route::post('cart/product/add/{id}', 'ProductController@Addcart');
+
