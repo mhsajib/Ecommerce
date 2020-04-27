@@ -27,6 +27,8 @@ class PostController extends Controller
         return view('admin.blog.create', compact('category'));
     }
     public function store(Request $request){
+
+
       $post = new Post;
       $post->post_title_en = $request->post_title_en;
       $post->post_title_bn = $request->post_title_bn;
@@ -40,6 +42,8 @@ class PostController extends Controller
 
     //   $post->save();
     //   echo 'done';
+
+    // return response()->json($post);
 
       $image_one = $request->post_image;
       if($image_one){

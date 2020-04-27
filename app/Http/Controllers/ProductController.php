@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
 use App\Model\Admin\Product;
 use Illuminate\Http\Request;
+use App\Model\Admin\Category;
 use App\Http\Controllers\Controller;
-use Cart;
 
 class ProductController extends Controller
 {
@@ -63,5 +64,15 @@ class ProductController extends Controller
           // return \Response::json(['success' => 'Successfully Added On you Cart']);
 
       }
+    }
+
+    public function ProductsView($id)
+    {
+        $category = Category::all();
+        $products = Product::where('subcategory_id', $id)->paginate(30);
+        $brands = Product::where('subcategory_id', $id)->select('brand_id')->groupBy('brand_id')->get();
+
+        // return response()->json($brand);
+        return view('pages.all_products',compact('products','brands','category'));
     }
 }

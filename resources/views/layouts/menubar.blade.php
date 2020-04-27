@@ -38,7 +38,7 @@
                                     @endphp
                                     @foreach ($subcategory as $item)
                                        
-                                   <li><a href="#">{{$item->subcategory_name}}<i class="fas fa-chevron-right"></i></a></li>
+                                <li><a href="{{url('product/'.$item->id)}}">{{$item->subcategory_name}}<i class="fas fa-chevron-right"></i></a></li>
                                     
                                     @endforeach
   
@@ -97,7 +97,7 @@
                                     <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{route('blog.post')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
                             <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
                         </ul>
                     </div>

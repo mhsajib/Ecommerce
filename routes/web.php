@@ -82,6 +82,11 @@ Route::get('delete/post/{id}', 'Admin\PostController@delete')->name('delete.post
 Route::get('edit/post/{id}', 'Admin\PostController@edit')->name('edit.post');
 Route::post('update/post/{id}', 'Admin\PostController@update')->name('update.post');
 
+//admin order routes
+
+Route::get('admin/pending/order', 'Admin\OrderController@NewOrder')->name('admin.neworder');
+Route::get('admin/view/order/{user_id}/{id}', 'Admin\OrderController@ViewOrder');
+
 
 
 
@@ -100,6 +105,27 @@ Route::get('show/cart/product','CartController@showCart')->name('show.cart');
 // Route::get('show/cart/product','CartController@showCart')->name('show.cart');
 Route::get('cart/product/view/{id}', 'CartController@ViewProduct');
 Route::post('insert/into/cart','CartController@insertCart')->name('insert_into.cart');
+Route::get('user/checkout', 'CartController@Checkout')->name('user.checkout');
+Route::get('user/wishlist', 'CartController@Wishlist')->name('user.wishlist');
+Route::post('apply/coupon', 'CartController@Coupon')->name('apply.coupon');
+Route::get('coupon/remove', 'CartController@CouponRemove')->name('coupon.remove');
+
+Route::get('payment/page', 'CartController@Paymentpage')->name('payment.step');
+
+
+
+//payment methods
+Route::post('user/payment/process', 'PaymentController@Payment')->name('payment.process');
+Route::post('user/stripe/charge', 'PaymentController@StripeCharge')->name('stripe.charge');
+
+
+
+//blog route
+Route::get('blog/post', 'BlogController@blog')->name('blog.post');
+Route::get('language/bangla', 'BlogController@Bangla')->name('language.bangla');
+Route::get('language/english', 'BlogController@English')->name('language.english');
+
+
 
 
 
@@ -111,6 +137,7 @@ Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcatego
 ///fronted route
 Route::post('store/newsletter', 'Frontend\FrontendController@storenewsletter')->name('store.newsletter');
 Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
+Route::get('/product/{id}', 'ProductController@ProductsView');
 
 Route::post('cart/product/add/{id}', 'ProductController@Addcart');
 

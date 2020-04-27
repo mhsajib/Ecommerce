@@ -22,6 +22,10 @@ class Product extends Model
     {
         return $this->belongsTo('App\Model\Admin\Subcategory');
     }
+    public function order_detail(){
+        return $this->belongsTo('App\Order_Detail');
+
+    }
 
 
 }
